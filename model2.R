@@ -65,8 +65,14 @@ db_int <- db_int %>%
 db_int <- db_int %>%
   mutate(H_Head = ifelse( p6050== 1, 1, 0))
 "
-re run the model
+re run the model2
+---------------
 "
+p <- mean(db_int$leverage)
+cutt <- 3*p
+db_int2 <-  db_int %>% 
+  dplyr:: filter(leverage<= cutt
+
 linear_model2<- lm(totalHoursWorked ~ ofic_ingLab + nmenores  +  nmenores*gender + H_Head + age + gender, data=db_int2 )
 summary(linear_model2)
 # el numero de niños crecio, el efecto de ingreso ocupados también (entre (1) y (2))
